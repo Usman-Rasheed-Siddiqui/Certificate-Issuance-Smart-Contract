@@ -1,0 +1,11 @@
+Citizen Contract:
+0xdC66A51C1779337baCA3037b6D564eFCDd74918d
+
+Skills Contract:
+0x751eFda8Fa5Cf46D7388295EbfFd1556f7419bA9
+
+Validation Contract:
+0x24fAdb521e61cbe95735f603fB89d2F0f8Ce56c5
+
+Certificate Contract:
+0xca878572b37F4581F95341Bf7eFbe606A47A8CED
