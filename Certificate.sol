@@ -166,6 +166,51 @@ contract Certificate {
         emit CertificateRevoked(_certificateId);
     }
 
+    function reactivateCertificate(uint64 _certificateId)
+    external
+    onlyGovernment
+{
+    CertificateData storage certificate = certificates[_certificateId];
+
+    require(
+        certificate.certificateId != 0,
+        "Certificate does not exist"
+    );
+
+    require(
+        !certificate.isActive,
+        "Certificate is already active"
+    );
+
+    require(
+        activeCertificate[certificate.citizenCNIC][certificate.certificateType] == 0,
+        "Another active certificate already exists"
+    );
+
+    // Check eligibility again
+    if (certificate.certificateType == CertificateType.GraphicDesigning) {
+        require(
+            validationContract.graphicDesigningCertificateCondition(
+                certificate.citizenCNIC
+            ),
+            "Citizen no longer meets Graphic Designing requirements"
+        );
+    } else if (certificate.certificateType == CertificateType.WebDevelopment) {
+        require(
+            validationContract.webDevelopmentCertificateCondition(
+                certificate.citizenCNIC
+            ),
+            "Citizen no longer meets Web Development requirements"
+        );
+    }
+
+    certificate.isActive = true;
+
+    activeCertificate[
+        certificate.citizenCNIC
+    ][certificate.certificateType] = _certificateId;
+}
+
     // Verify certificate authenticity
     function verifyCertificate(uint64 _certificateId)
         external
