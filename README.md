@@ -855,7 +855,7 @@ Injected Provider - MetaMask
 6. Use:
 
 ```text
-At Address
++ Add Contract
 ```
 
 7. Enter the existing contract address.
@@ -863,16 +863,16 @@ At Address
 For example:
 
 ```text
-Citizen → At Address → Citizen contract address
+Citizen → + Add Contract → Citizen contract address
 
-Skills → At Address → Skills contract address
+Skills → + Add Contract → Skills contract address
 
-Validation → At Address → Validation contract address
+Validation → + Add Contract → Validation contract address
 
-Certificate → At Address → Certificate contract address
+Certificate → + Add Contract → Certificate contract address
 ```
 
-`At Address` connects Remix to an existing deployed contract and **does not deploy a new contract**.
+`+ Add Contract` connects Remix to an existing deployed contract and **does not deploy a new contract**.
 
 > Using an existing contract address does not give permission to modify it. Only the configured Government and Authorized Third Party accounts can perform their respective restricted actions.
 
@@ -901,7 +901,7 @@ Certificate → At Address → Certificate contract address
                             Reactivate
 ```
 
-The overall system can be summarized as:
+The overall system is summarized as:
 
 ```text
 Citizen + Skills
@@ -917,43 +917,6 @@ Certificate  Reject
 Active Certificate
    ↓
 Revoke ↔ Reactivate
-```
-
-# Summary
-
-**Deploy from scratch:**
-
-```text
-Citizen
-  ↓
-Skills
-  ↓
-Validation
-  ↓
-Certificate
-```
-
-**Normal operation:**
-
-```text
-Add Citizen
-    ↓
-Add Skills
-    ↓
-Check Eligibility
-    ↓
-Issue Certificate
-    ↓
-Verify Certificate
-    ↓
-Revoke / Reactivate
-```
-
-**Certificate types:**
-
-```text
-0 = Graphic Designing
-1 = Web Development
 ```
 
 **Important:** Certificate IDs are generated automatically by the Certificate contract; they are not entered manually when calling `issueCertificate()`.
