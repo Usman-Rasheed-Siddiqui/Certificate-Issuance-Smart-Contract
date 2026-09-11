@@ -505,25 +505,6 @@ You now have the complete system deployed.
 The contracts **must be deployed in this order**:
 
 ```text
-1. Citizen
-      │
-      │ address
-      ▼
-2. Skills
-      │
-      │
-      ├──────────────┐
-      ▼              ▼
-3. Validation ◄──── Citizen
-      │
-      │ address
-      ▼
-4. Certificate
-```
-
-More simply:
-
-```text
 Citizen
    +
 Skills
